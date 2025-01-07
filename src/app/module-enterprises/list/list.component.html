@@ -1,0 +1,153 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">TABLEAU DE BORD</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>MES NOTES DE FRAIS</nz-breadcrumb-item>
+</nz-breadcrumb>
+<br />
+
+<div class="app-container">
+  <div class="table-header">
+    <div class="search-bar-container">
+      <input nz-input placeholder="Rechercher une opération" type="text" />
+    </div>
+
+    <div class="button-container">
+      <!--<button nz-button nzType="default" >
+        <i nz-icon nzType="plus"></i>
+      <span class="colors">Ajouter une catégorie</span>
+      </button>-->
+      <button (click)="onAdd()" nz-button nzType="primary">
+        <span nz-icon nzTheme="outline" nzType="plus"></span>
+        Nouvelle note de frais
+      </button>
+
+      <!--<button nz-button nzType="primary" (click)="showModalMiddle()">Nouvelle note de frais</button>
+      <nz-modal
+        [(nzVisible)]="isVisibleMiddle"
+        nzTitle="Note de frais / Dépenses de note"
+        nzCentered
+        (nzOnCancel)="handleCancelMiddle()"
+        (nzOnOk)="handleOkMiddle()"
+      >
+        <ng-container *nzModalContent>
+          <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7">Titre de la note</nz-form-label>
+              <nz-form-control [nzSpan]="12" >
+                <input nz-input formControlName="title" placeholder="Titre de la note" />
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" >Date</nz-form-label>
+              <nz-form-control [nzSpan]="12" >
+                <input nz-input formControlName="date" placeholder="Date" type="date" />
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Password</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input your password!">
+                <input nz-input type="password" formControlName="password" (ngModelChange)="validateConfirmPassword()" />
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Confirm Password</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="passwordErrorTpl">
+                <input nz-input type="password" formControlName="confirm" placeholder="confirm your password" />
+                <ng-template #passwordErrorTpl let-control>
+                  <ng-container *ngIf="control.hasError('required')">Please confirm your password!</ng-container>
+                  <ng-container *ngIf="control.hasError('confirm')">Password is inconsistent!</ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="7" nzRequired>Comment</nz-form-label>
+              <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write something here!">
+                <nz-textarea-count [nzMaxCharacterCount]="2000">
+                  <textarea formControlName="comment" nz-input rows="2" placeholder="write any thing"></textarea>
+                </nz-textarea-count>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzOffset]="7" [nzSpan]="12">
+                <button nz-button nzType="primary" [disabled]="!validateForm.valid">Enregistrer</button>
+                <button nz-button (click)="resetForm($event)">Annuler</button>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+        </ng-container>
+      </nz-modal>-->
+      <!-- <button
+        nz-button
+        nzType="primary"
+        [disabled]="setOfCheckedId.size === 0"
+        [nzLoading]="loading"
+        (click)="sendRequest()"
+        [ngClass]="setOfCheckedId.size === 0 ? 'hide_btn' : ''"
+      >
+        Action sur selection
+      </button> -->
+    </div>
+  </div>
+  <div class="table-content">
+    <nz-table
+      #rowSelectionTable
+      (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+      [nzData]="noteFraisListing"
+      nzShowPagination
+      nzShowSizeChanger
+    >
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Note de frais</th>
+          <th>Nombre de dépenses</th>
+          <th>Montant</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of noteFraisListing">
+          <td>{{ data.id }}</td>
+          <td>{{ data.noteFrais }}</td>
+          <td>{{ data.nbDepenses }}</td>
+          <td>{{ data.montant }}</td>
+          <td>
+            <span class="statut"> {{ data.statut }}</span>
+          </td>
+          <td class="boutons">
+            <div>
+              <button
+                class="colorDetail flex items-center"
+                nz-button
+                nzType="default"
+              >
+                <i nz-icon nzType="eye"></i>
+                <span>Details</span>
+              </button>
+            </div>
+
+            <div class="export">
+              <button nz-button nzType="primary">
+                <i nz-icon nzType="edit"></i>
+                <span>modifier</span>
+              </button>
+            </div>
+
+            <div class="supp">
+              <button
+                class="colorSupp"
+                nz-button
+                nzShape="circle"
+                nzType="primary"
+              >
+                <i nz-icon nzType="delete"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

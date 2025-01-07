@@ -1,0 +1,48 @@
+<div class="login_form">
+  <div class="h-100 container full-container">
+    <div class="container-left">
+      <app-left-container
+        [imgSrc]="'assets/verification/register_home.svg'"
+        [title]="'Espace d\'authentification'"
+      ></app-left-container>
+    </div>
+    <div class="container-right">
+      <div [nzGutter]="24" nz-row nzAlign="middle" nzJustify="center">
+        <div [nzXs]="24" nz-col>
+          <h1 class="text-white text-3xl title-page">Mode d'inscription</h1>
+        </div>
+
+        <div [nzXs]="24" nz-col>
+          <form nz-form nzLayout="vertical">
+            <nz-form-item>
+              <div (click)="existingAccount()" class="btn-look already-account border-white text-white p-4 flex justify-between items-center">
+                <div class="flex-08">
+                  <div class="title">Compte entreprise existant</div>
+                  <p class="text-xs m-0">
+                    Si votre entreprise possède déjà un compte vous pouvez vous
+                    inscrire a partir du code de l’entreprise
+                  </p>
+                </div>
+                <span nz-icon nzTheme="outline" nzType="caret-right"></span>
+              </div>
+            </nz-form-item>
+
+            <nz-form-item>
+              <div
+                (click)="goNewOrganisation()"
+                class="btn-look new-company text-primary-color bg-white p-4"
+                nzSpan="24"
+              >
+                Nouvelle entreprise
+              </div>
+            </nz-form-item>
+          </form>
+        </div>
+
+        <label (click)="goConnect()" class="border-bottom-white cursor-pointer"
+        >Se connecter</label
+        >
+      </div>
+    </div>
+  </div>
+</div>

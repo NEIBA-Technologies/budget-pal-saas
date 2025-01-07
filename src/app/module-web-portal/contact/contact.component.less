@@ -1,0 +1,236 @@
+.icon {
+  padding: .6rem;
+  border-radius: 100%;
+  font-size: 1rem;
+  margin-right: 1rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  align-items: center;
+
+  img {
+    margin: 0 !important;
+  }
+}
+
+.twitter {
+  background: rgb(69, 154, 233);
+}
+
+.instagram {
+  background: #FFF;
+}
+
+.discord {
+  background: #5865F2;
+}
+
+
+.bloc_process {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 1rem;
+
+    p{
+      font-size: 20px;
+    }
+
+    span {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.headSection p {
+  text-align: center;
+  font-size: 20px;
+  color: #717171;
+}
+
+.groupContact {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 80%;
+  height: auto;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+  grid-gap: 40px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+.info {
+  width: auto;
+  height: auto;
+  background: var(--primary-color-shade-600);
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+
+  &:after {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: calc((300px / 2) + 100px - 8rem);
+    background: #FFFFFF2B;
+    content: "";
+    border-radius: 100%;
+  }
+  &:before {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+
+    right: -4rem;
+    bottom: -4rem;
+    background: #FFFFFF2B;
+    content: "";
+    border-radius: 100%;
+  }
+}
+
+.info h4 {
+  color: white;
+  font-size: 25px;
+  margin: 2em 0em 3em 0em;
+}
+
+.sitGeo {
+  //width: 100%;
+  color: white;
+  margin-bottom: 8em;
+  text-align: left;
+  width: 20em;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sitGeo p {
+  font-size: 17px;
+  margin-top: 3em;
+  margin-bottom: 3em;
+
+}
+
+.site {
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+.social img {
+  margin: 0 1em;
+}
+
+.contact {
+  width: auto;
+  height: auto;
+  padding: 10px;
+
+}
+
+.contact img {
+  float: right;
+  margin: 0 8em;
+}
+
+.FormBLock {
+  margin-top: 3em;
+}
+
+.formGroup {
+  position: relative;
+  display: flex;
+  margin-bottom: 45px;
+}
+
+.formGroup label {
+  position: absolute;
+  top: 0%;
+  left: 0px;
+  transform: translateY(-50%);
+  color: #8D8D8D;
+  font-size: 20px;
+  transition: 0.4s ease-out;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.formGroup input {
+  position: block;
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom: 2px solid #aaa;
+  color: #8D8D8D;
+  font-size: 18px;
+  transition: 0.4s ease-out;
+}
+
+input::placeholder {
+  color: gray;
+  font-size: 14px;
+}
+
+.btns {
+  margin-top: 5em;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1204px) {
+  .groupContact {
+    display: block;
+  }
+
+  .contact {
+    margin-bottom: 15em;
+  }
+}
+
+@media (max-width: 672px) {
+  .forms {
+    display: block;
+  }
+
+  .info {
+    display: none;
+  }
+
+  .contact {
+    margin-bottom: 10em;
+  }
+}
+
+
+
+
+

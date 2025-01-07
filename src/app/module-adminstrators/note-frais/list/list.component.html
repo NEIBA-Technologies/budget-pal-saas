@@ -1,0 +1,111 @@
+<div class="shadow-md rounded-sm bg-white">
+  <div
+    class="card-head-background p-4 border-b flex flex-col sm:flex-row items-start sm:items-center sm:justify-between">
+
+    <div class="flex flex-col flex-auto sm:flex-row items-start sm:items-center w-auto ">
+      <div class="w-4/12 mb-2 sm:mb-0 mr-4">
+        <nz-input-group nzPrefixIcon="search" nzSize="default">
+          <input nz-input nzSize="default" placeholder="Rechercher une note" type="text"/>
+        </nz-input-group>
+      </div>
+
+      <button (click)="showDrawerFilter()" class="align-center-btn" nz-button nzSize="default" nzType="dashed">
+        <span nz-icon nzTheme="outline" nzType="filter"></span>
+        Autres filtre
+      </button>
+
+    </div>
+
+    <div class="button-container mb-2 sm:mb-0">
+      <button (click)="goCreate()" class="align-center-btn" nz-button nzSize="default" nzType="primary">
+        <span nz-icon nzTheme="outline" nzType="plus"></span>
+        Nouvelle note
+      </button>
+    </div>
+  </div>
+  <div class="bg-white">
+    <nz-table
+      #nzTable (nzPageIndexChange)="onPageIndexChange($event)"
+      (nzPageSizeChange)="onPageSizeChange($event)"
+      [nzData]="(data$ |async) ?? []"
+      [nzFrontPagination]="false"
+      [nzLoading]="(data$|async)==null || isLoading"
+      [nzPageIndex]="pageIndex"
+      [nzPageSizeOptions]="pageSizeOptions"
+      [nzPageSize]="pageSize"
+      [nzShowPagination]="false"
+      [nzShowSizeChanger]="false"
+      [nzTotal]="total"
+      class="mb-0"
+      nzSize="small">
+      <thead class="text-primary-color">
+      <tr>
+        <th
+          (nzCheckedChange)="onAllChecked($event)"
+          [(nzChecked)]="checked"
+          [nzIndeterminate]="indeterminate"
+          class="th truncate"
+        >
+        </th>
+        <th *ngFor="let title of tableHeaderTitle" class="th truncate">{{title}}</th>
+        <th class="th truncate">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let rowItem of nzTable.data; let i = index" class="tr">
+        <td (nzCheckedChange)="onItemChecked(rowItem, $event)"
+            [nzChecked]="_alreadyInTagSelection(rowItem)"></td>
+        <td class="td truncate" nzEllipsis>
+          #{{rowItem?.id}}
+        </td>
+        <td class="td truncate" nzEllipsis>
+          {{rowItem?.noteFrais}}
+        </td>
+        <td class="td truncate" nzEllipsis>
+          {{rowItem?.nbDepenses}}
+        </td>
+        <td class="td truncate" nzEllipsis>
+          {{rowItem?.montant | currency}}
+        </td>
+        <td class="td truncate" nzEllipsis>
+          <nz-tag nzColor="blue">{{rowItem?.statut}}</nz-tag>
+        </td>
+        <td class="td-actions" nzEllipsis>
+          <nz-space nzAlign="center" nzDirection="horizontal" nzSize="middle" nzWrap>
+            <app-chip (click)="onShowItem(rowItem)" *nzSpaceItem nzIcon="eye" nzLabel="Voir" shape="default"
+                      type="dark"></app-chip>
+            <app-chip (click)="onUpdateItem(rowItem)" *nzSpaceItem nzIcon="edit" nzLabel="Editer" shape="default"
+                      type="primary"></app-chip>
+            <app-chip (click)="onDeleteItem(rowItem)" *nzSpaceItem [showLabel]="false"
+                      nzIcon="delete" shape="circle" type="danger"></app-chip>
+          </nz-space>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  <div class="flex m-0 justify-between items-center p-4 ant-table-footer">
+    <div class="w-full sm:w-auto">
+      <div class="text-muted float-left">
+        <strong>{{pageSize}}</strong> élément(s) / <strong>{{ total }}</strong>
+      </div>
+    </div>
+    <div class="w-full sm:w-8/12">
+      <nz-pagination
+        (nzPageIndexChange)="onPageIndexChange($event)"
+        (nzPageSizeChange)="onPageSizeChange($event)"
+        [nzPageIndex]="pageIndex"
+        [nzPageSizeOptions]="pageSizeOptions"
+        [nzPageSize]="pageSize"
+        [nzResponsive]="true"
+        [nzSize]="'small'"
+        [nzTotal]="total"
+        class="text-end"
+        nzShowSizeChanger></nz-pagination>
+    </div>
+  </div>
+</div>
+
+<ng-template #extraFilter>
+  <button nz-button nzGhost nzShape="round" nzSize="default" nzType="primary">Appliquer</button>
+</ng-template>

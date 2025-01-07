@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("landing.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+:root {
+  --primary-color: #761941;
+  --color-background: #f3f4ef;
+  --color-btn-two: #f3f4ef;
+}
+
+@layer components {
+  .rounded-button {
+    @apply inline-block text-sm font-medium focus:outline-none focus:ring rounded-[15px] transition-all py-[10px] px-[40px];
+  }
+
+  .bg-color {
+    @apply bg-[#f3f4ef];
+  }
+}

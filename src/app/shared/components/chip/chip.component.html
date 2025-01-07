@@ -1,0 +1,7 @@
+<div class="tag-custom {{color}} tag-custom-{{shape}} margin-bottom-sm-6">
+  <span *ngIf="icon != ''" [nzType]="icon" nz-icon nzTheme="outline"></span>
+  <ng-template #elseTemplate>
+    <span nz-icon nzTheme="outline" nzType="number"></span>
+  </ng-template>
+  <span *ngIf="showLabel" class="tag-name">{{ label }}</span>
+</div>

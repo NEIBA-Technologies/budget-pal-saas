@@ -1,0 +1,40 @@
+.avis_item {
+  background-color: #ebf6fa;
+  border-radius: 10px;
+  padding: 1rem;
+  gap: 1rem;
+  //display: flex;
+  //align-items: center;
+
+  .image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .more_data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    justify-content: center;
+    .name,
+    .descriptio {
+      color: #000000;
+    }
+
+    .job_name {
+      color: #b7b7b7;
+    }
+  }
+
+  &.ml {
+    margin-left: 2rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .ml {
+    margin-left: 0 !important;
+  }
+}

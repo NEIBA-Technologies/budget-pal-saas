@@ -1,0 +1,75 @@
+<div class="app-container">
+    <div class="form-content">
+        <form (ngSubmit)="submitForm()" [formGroup]="form" nz-form nzLayout="vertical">
+            <div [nzGutter]="22" nz-row>
+                <div [nzSm]="12" [nzXs]="24" nz-col>
+                    <nz-form-item>
+                        <nz-form-label nzFor="user" nzRequired>Nom</nz-form-label>
+                        <nz-form-control nzErrorTip="Le nom est requis !">
+                            <nz-input-group nzPrefixIcon="user">
+                                <input formControlName="name" id="user" nz-input placeholder="Konan"/>
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div [nzSm]="12" [nzXs]="24" nz-col>
+                    <nz-form-item>
+                        <nz-form-label nzFor="lastname" nzRequired>Prénom</nz-form-label>
+                        <nz-form-control nzErrorTip="Le prénom est requis !">
+                            <nz-input-group nzPrefixIcon="user">
+                                <input formControlName="name" id="lastname" nz-input placeholder="ange"/>
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <div [nzSm]="12" [nzXs]="24" nz-col>
+                    <nz-form-item>
+                        <nz-form-label nzFor="phone" nzRequired>Téléphone</nz-form-label>
+                        <nz-form-control nzErrorTip="Le telephone est requis !">
+                            <nz-input-group nzPrefixIcon="phone">
+                                <input formControlName="phone" id="phone" nz-input placeholder="09 87 65 43 54"
+                                       type="number"/>
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                </div>
+                <div [nzSm]="12" [nzXs]="24" nz-col>
+                    <nz-form-item>
+                        <nz-form-label nzFor="email" nzRequired>Email</nz-form-label>
+                        <nz-form-control nzErrorTip="Le mail est requis !">
+                            <nz-input-group nzPrefixIcon="mail">
+                                <input formControlName="email" id="email" nz-input placeholder="konan@gmail.com"
+                                       type="email"/>
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                </div>
+                <div [nzSm]="12" [nzXs]="24" nz-col>
+                    <nz-form-item>
+                        <nz-form-label nzFor="profile" nzRequired>Profil</nz-form-label>
+                        <nz-form-control nzErrorTip="Please select your gender!">
+                            <nz-select formControlName="profile" id="profile" nzPlaceHolder="Selectionner">
+                                <nz-option nzLabel="Profil 1" nzValue="Profil 1"></nz-option>
+                                <nz-option nzLabel="Profil 2" nzValue="Profil 2"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+    <div class="form-footer">
+        <button (click)="onCancel()" nz-button>Annuler</button>
+        <button nz-button nzType="primary">
+            Valider
+        </button>
+    </div>
+</div>
+

@@ -1,0 +1,92 @@
+.section_our_partners {
+
+  .section_with_padding {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    h1 {
+      font-size: 30px;
+      color: #0d0c46;
+      font-weight: bold;
+    }
+
+    .round_tuile_item_container {
+      gap: 1rem;
+      margin-top: 1rem;
+
+      .round_tuile_item {
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primary-color);
+
+        .item {
+          color: #FFF;
+          font-weight: bold;
+          text-align: center;
+          padding-bottom: 1.4rem;
+        }
+
+        .value{
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+.app-container{
+}
+
+
+
+.bloc_process {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 1rem;
+
+    p{
+      font-size: 20px;
+    }
+
+    span {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.headSection p {
+  text-align: center;
+  font-size: 18px;
+  color: #717171;
+}
+@media (max-width: 768px) {
+  .section_our_partners {
+    .section_with_padding {
+      padding: 1rem !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .round_tuile_item_container {
+    .round_tuile_item {
+      width: 100%;
+    }
+
+  }
+}

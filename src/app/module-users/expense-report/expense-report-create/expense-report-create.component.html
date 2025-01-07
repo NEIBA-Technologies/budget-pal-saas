@@ -1,0 +1,83 @@
+<div class="app-container">
+  <div class="form-container">
+    <div class="form-header flex">
+      <span>Enregistrer une note de frais</span>
+      <div class="right_btns">
+        <button (click)="onAddExpense()" nz-button>
+          <span nz-icon nzTheme="outline" nzType="plus"></span>Nouvelle dépense
+        </button>
+        <button (click)="onShowLinkedExpenses()" [disabled]="expensesList.length===0" nz-button>
+          <span nz-icon nzTheme="outline" nzType="ordered-list"></span>
+          Voir les dépenses
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-content">
+    <form (ngSubmit)="submitForm()" [formGroup]="form" nz-form>
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <nz-form-item>
+            <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="email" nzRequired
+            >Libelle
+            </nz-form-label
+            >
+            <nz-form-control
+              [nzSm]="20"
+              [nzXs]="24"
+              nzErrorTip="Le nom est requis !"
+            >
+              <input formControlName="name" id="name" nz-input/>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <nz-form-item>
+            <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="date" nzRequired
+            >Date
+            </nz-form-label
+            >
+            <nz-form-control
+              [nzSm]="20"
+              [nzXs]="24"
+              nzErrorTip="La date est requise !"
+            >
+              <input formControlName="date" id="date" nz-input type="date"/>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+
+      <div nz-row>
+        <div nz-col nzSpan="24">
+          <nz-form-item>
+            <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="description" nzRequired
+            >Description
+            </nz-form-label
+            >
+            <nz-form-control
+              [nzSm]="20"
+              [nzXs]="24"
+              nzErrorTip="La description est requise !"
+            >
+              <angular-editor
+                [config]="editorConfig"
+                formControlName="description"
+              ></angular-editor>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="form-footer">
+    <button (click)="onCancel()" nz-button>Annuler</button>
+    <button [disabled]="form.invalid" nz-button nzType="primary">
+      Ajouter
+    </button>
+  </div>
+</div>

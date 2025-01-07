@@ -1,0 +1,76 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">GESTION DES MEMBRES</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>AJOUTER</nz-breadcrumb-item>
+</nz-breadcrumb> <br>
+
+<div class="app-container">
+
+  <div class="table-header">
+    <h4>Enregistrement</h4>
+  </div>
+
+  <div class="table-content">
+    <form action="">
+
+      <div class="row">
+        <div class="label">
+          <label for="typeAccount">Type de compte</label>
+        </div>
+        <div class="input">
+          <select id="typeAccount" name="typeAccount">
+            <option value="admin">Administrateur</option>
+            <option value="membre">Membre</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="userName">Nom de l'entreprise / membre</label>
+        </div>
+        <div class="input">
+          <input id="userName" name="userName" placeholder="Entrez le nom.." type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="tel">Téléphone</label>
+        </div>
+        <div class="input">
+          <input id="tel" name="tel" placeholder="Ex: (+225) 07 01 020 304" type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="email">Téléphone</label>
+        </div>
+        <div class="input">
+          <input id="email" name="email" placeholder="Ex: email@gmail.com" type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="access">Accès</label>
+        </div>
+        <div class="input">
+          <select id="access" name="access">
+            <option value="yesAccess">Autorisation</option>
+            <option value="noAccess">Non autorisé</option>
+
+          </select>
+        </div>
+      </div>
+
+      <br>
+      <div class="row" style="display: flex;justify-content: center; margin-left: 400px;">
+        <input type="submit" value="Enregistrer">
+      </div>
+    </form>
+  </div>
+
+</div>

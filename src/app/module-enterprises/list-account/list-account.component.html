@@ -1,0 +1,99 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">GESTION DES MEMBRES</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>LISTE DES COMPTES</nz-breadcrumb-item>
+</nz-breadcrumb> <br>
+
+<div class="app-container">
+
+  <div class="table-header">
+    <h4>Compte entreprise / membres</h4>
+
+    <div class="button-container">
+      <button (click)="onLink()" nz-button nzType="default">
+        <i nz-icon nzType="link"></i>
+        <span class="colors">Générer un lien</span>
+      </button>
+      <button (click)="addAccount()" nz-button nzType="primary">
+        <span nz-icon nzTheme="outline" nzType="plus"></span>
+        Nouveau compte
+      </button>
+      <!-- <button
+        nz-button
+        nzType="primary"
+        [disabled]="setOfCheckedId.size === 0"
+        [nzLoading]="loading"
+        (click)="sendRequest()"
+        [ngClass]="setOfCheckedId.size === 0 ? 'hide_btn' : ''"
+      >
+        Action sur selection
+      </button> -->
+    </div>
+  </div>
+  <div class="table-content">
+    <nz-table
+      #rowSelectionTable
+      (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+      [nzData]="noteFraisListing"
+      nzShowPagination
+      nzShowSizeChanger
+    >
+      <thead>
+      <tr>
+        <th>N°</th>
+        <th>Type de compte</th>
+        <th>Nom de l'entreprise / membre</th>
+        <th>Téléphone</th>
+        <th>Email</th>
+        <th>Accès</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of noteFraisListing">
+        <td>{{data.id}}</td>
+        <td>{{data.typeUser}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.tel}}</td>
+        <td>{{data.email}}</td>
+        <td>
+          <button [nzDropdownMenu]="menu4" nz-button nz-dropdown>
+            Autorisation
+            <span nz-icon nzType="down"></span>
+          </button>
+          <nz-dropdown-menu #menu4="nzDropdownMenu">
+            <ul nz-menu>
+              <li nz-menu-item>Autorisation</li>
+              <li nz-menu-item>Non autorisé</li>
+            </ul>
+          </nz-dropdown-menu>
+        </td>
+        <td class="boutons">
+          <div>
+            <button class="colorDetail" nz-button nzType="default">
+              <i nz-icon nzType="eye"></i>
+              <span>Details</span>
+            </button>
+          </div>
+
+          <div class="export">
+            <button nz-button nzType="primary">
+              <i nz-icon nzType="edit"></i>
+              <span>modifier</span>
+            </button>
+          </div>
+
+          <div class="supp">
+            <button class="colorSupp" nz-button nzShape="circle" nzType="primary"><i nz-icon nzType="delete"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+
+</div>
+

@@ -1,0 +1,4 @@
+- Gère les entreprises
+- Gère les utilisateurs
+- Gère le referentiel (catégories de note , ... )
+- Gère la sécurité ( Permission , profils , administrateurs , ...)

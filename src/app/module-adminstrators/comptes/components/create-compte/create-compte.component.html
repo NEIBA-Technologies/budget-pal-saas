@@ -1,0 +1,63 @@
+<div class="shadow-md rounded-sm bg-white">
+
+  <div class="form-header flex flex-col sm:flex-row  border-b items-center justify-between ">
+      <span>Enregistrement compte entreprise</span>
+  </div>
+
+  <div class="form-content">
+      <form (ngSubmit)="submitForm()" [formGroup]="form" nz-form nzLayout="vertical">
+          <div [nzGutter]="22" nz-row>
+              <div [nzSm]="12" [nzXs]="24" nz-col>
+                  <nz-form-item>
+                      <nz-form-label nzFor="user" nzRequired>Nom entreprise</nz-form-label>
+                      <nz-form-control nzErrorTip="Le nom est requis !">
+                          <nz-input-group nzPrefixIcon="user">
+                              <input formControlName="name" id="user" nz-input placeholder="blommfield"/>
+                          </nz-input-group>
+                      </nz-form-control>
+                  </nz-form-item>
+              </div>
+              <div [nzSm]="12" [nzXs]="24" nz-col>
+                <nz-form-item>
+                    <nz-form-label nzFor="email" nzRequired>Email professionnel</nz-form-label>
+                    <nz-form-control nzErrorTip="Le mail est requis !">
+                        <nz-input-group nzPrefixIcon="mail">
+                            <input formControlName="email" id="email" nz-input placeholder="bloom@gmail.com"
+                                   type="email"/>
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+
+            </div>
+
+              <div [nzSm]="12" [nzXs]="24" nz-col>
+                  <nz-form-item>
+                      <nz-form-label nzFor="phone" nzRequired>Téléphone professionnel</nz-form-label>
+                      <nz-form-control nzErrorTip="Le telephone est requis !">
+                          <nz-input-group nzPrefixIcon="phone">
+                              <input formControlName="phone" id="phone" nz-input placeholder="09 87 65 43 54"
+                                     type="number"/>
+                          </nz-input-group>
+                      </nz-form-control>
+                  </nz-form-item>
+
+              </div>
+              
+             
+
+
+          </div>
+      </form>
+  </div>
+
+  <div class="p-4 border-t flex sm:flex-row flex-col sm:justify-between justify-center items-center">
+      <button (click)="onCancel()" class="mb-4 sm:mb-0 align-center-btn" nz-button nzDanger nzGhost>
+          <span nz-icon nzTheme="outline" nzType="arrow-left"></span>
+          Annuler
+      </button>
+      <button class="align-center-btn" nz-button nzType="primary">
+          <span nz-icon nzTheme="outline" nzType="save"></span>
+          Enregistrer
+      </button>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="login_form">
+  <div class="h-100 container full-container shadow-md">
+    <div class="container-left bg-red-900 h-100">
+      <app-left-container
+        [imgSrc]="'assets/connexion/secure-document.png'"
+        [title]="'Espace d\'authentification'"
+      ></app-left-container>
+    </div>
+    <div class="container-right">
+      <div
+        [nzGutter]="24"
+        class="margin-0 container-form"
+        nz-row
+        nzAlign="middle"
+        nzJustify="center">
+        <div class="padding-0 flex-1" nz-col>
+          <h1 class="text-white m-0 items-center flex">Authentification</h1>
+        </div>
+
+        <div [nzXs]="24" class="padding-0 flex-2 w-full" nz-col>
+          <form nz-form nzLayout="vertical">
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="user" nzSize="default">
+                  <input
+                    nz-input
+                    nzSize="default"
+                    placeholder="Entrez votre adresse mail"
+                  />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="security-scan" nzSize="default">
+                  <input
+                    nz-input
+                    nzSize="default"
+                    placeholder="Mot de passe"
+                    type="password"
+                  />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+
+          <div class="forgot-action-section my-4">
+            <label nz-checkbox>Se souvenir</label>
+
+            <a (click)="goReset()" class="forgot-password"
+              >Mot de passe oublier ?</a
+            >
+          </div>
+
+          <button
+            class="border-white text-white my-4"
+            nz-button
+            nzBlock
+            (click)="onLogin()"
+            nzGhost
+            nzSize="large"
+            nzType="primary"
+          >
+            Connexion
+          </button>
+        </div>
+
+        <div class="w-full text-center">
+          <label
+            (click)="goRegister()"
+            class="border-bottom-white cursor-pointer mt-0 flex-1 w-full"
+            >Crée un compte</label
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

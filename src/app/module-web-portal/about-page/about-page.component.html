@@ -1,0 +1,77 @@
+<div class="section_about_us">
+ <div class="app-container container mx-auto">
+  <div class="section_with_padding">
+    <div class="bloc_process mb-10 mt-5 headSection" id="fonctionnalitie">
+      <h1 class="text-center">À propos  <span>de nous</span></h1>
+    </div>
+   <!-- <div class="mb-10"> <app-button-title [title]="'À propos de nous'"></app-button-title></div> -->
+    <div class="about">
+      <h1>Qui sommes nous ?</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta quo
+        dolore, illum voluptas vitae a mollitia atque corporis, quas natus
+        adipisci ipsa molestiae dolorem iure, vero aut ipsam suscipit odio?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis id
+        minus dolorum velit rem fugit recusandae eaque hic a, molestias
+        eligendi, rerum, sequi blanditiis itaque et odit labore exercitationem
+        nemo.
+      </p>
+    </div>
+
+    <div class="flex flex-col sm:flex-row w-full mt-8">
+      <div class="groups w-full sm:w-6/12 ">
+        <ng-container *ngFor="let item of listItems">
+          <div class="group-item mb-8 flex flex-col sm:flex-row items-start">
+            <div [ngStyle]="{'background-image': 'url('+item.url+')', 'width.px': item.w ?? '100'}"
+                 class="container-illustration h-20 w-20 mb-4 sm:mb-0 sm:mr-4"></div>
+            <div class="content">
+              <h2 class="font-semibold text-2xl">{{item.name}}</h2>
+              <p class="font-light mb-0">{{item.description}}</p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="right w-full sm:w-6/12">
+        <div class="container-img">
+          <img class="relative top-0" src="assets/webportal/icons/about/Illustration_2.png"/>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+<div class="block_buy_license mt-5 py-16">
+  <div class="block_item_container w-full pb-4">
+    <div
+      class="w-full sm:w-4/6 bg-white m-auto rounded-md shadow-md shadow-slate-300 border-1 grid grid-cols-1 sm:grid-cols-3 gap-3 p-10 mt-5">
+      <div *ngFor="let item of listItemStats"
+           class="item justify-center flex items-center flex-col sm:flex-row mb-8 sm:mb-0">
+        <div class="icon bg-red-100 p-3 sm:mr-4 rounded-md h-10 w-10 flex items-center">
+          <span [nzType]="item.icon" class="red-color" nz-icon nzTheme="outline"></span>
+        </div>
+        <div class="block">
+          <div class="value text-2xl sm:text-4xl font-bold">{{item.title}}</div>
+          <div class="text w-full" style="color: #4f5665">
+            <p class="m-0 text-black">
+              {{item.subTitle}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="justify-center flex flex-col items-center text-center">
+    <h1>Acheter une licence maintenant</h1>
+    <p class="text-center">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dictaquo dolore, illum voluptas vitae a mollitia atque
+      corporis, quasnatus adipisci ipsa molestiae dolorem iure, vero aut ipsam.
+    </p>
+    <app-button-icon
+      class="w-auto"
+      [linkDestination]="' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dictaquo dolore, illum voluptas vitae a mollitia atque corporis, quasnatus adipisci ipsa molestiae dolorem iure, vero aut ipsam. '"
+      [title]="'Acherter'"
+    ></app-button-icon>
+  </div>
+</div>
+
+

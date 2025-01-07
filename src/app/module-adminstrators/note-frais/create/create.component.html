@@ -1,0 +1,123 @@
+<div class="shadow-md rounded-sm bg-white">
+
+  <div class="form-header flex flex-col sm:flex-row  border-b items-center justify-between ">
+    <span>Note de frais / Dépenses de la note</span>
+
+
+    <button (click)="onAddCategory()" nz-button nzGhost nzShape="round" class="align-center-btn" nzType="primary">
+      <i nz-icon nzType="plus"></i>
+      Catégorie de dépense
+    </button>
+  </div>
+
+  <div class="form-content">
+    <form (ngSubmit)="submitForm()" [formGroup]="form" nz-form nzLayout="vertical">
+      <div [nzGutter]="22" nz-row>
+        <div [nzSm]="12" [nzXs]="24" nz-col>
+          <nz-form-item>
+            <nz-form-label [nzSm]="24" [nzXs]="24" nzFor="email" nzRequired>Titre de la note</nz-form-label>
+            <nz-form-control nzErrorTip="Le titre de la note est requis !">
+              <nz-input-group nzPrefixIcon="tags">
+                <input formControlName="name" id="name" nz-input/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div [nzSm]="12" [nzXs]="24" nz-col>
+          <nz-form-item>
+            <nz-form-label [nzSm]="24" [nzXs]="24" nzFor="montant" nzRequired>Montant</nz-form-label>
+            <nz-form-control nzErrorTip="Le montant est requis !">
+              <nz-input-group nzPrefixIcon="number" nzSuffix="{{CURRENCY}}">
+
+                <input [min]="1000"
+                       formControlName="montant"
+                       id="montant"
+                       nz-input
+                       placeHolder="1000"
+                       type="number"
+
+                />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div [nzSm]="12" [nzXs]="24" nz-col>
+          <nz-form-item>
+            <nz-form-label [nzSm]="24" [nzXs]="24" nzFor="date" nzRequired>Date</nz-form-label>
+            <nz-form-control nzErrorTip="La date est requise !">
+              <nz-date-picker
+                [nzDefaultPickerValue]="today"
+                [nzDisabledDate]="disabledDate"
+                [nzDisabledTime]="disabledDateTime"
+                [nzShowTime]="true"
+                formControlName="date"
+                nzFormat="dd-MM-yyyy HH:mm:ss"
+              ></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div [nzSm]="12" [nzXs]="24" nz-col>
+          <nz-form-item>
+            <nz-form-label nzFor="moyenPay" nzRequired>Mode de paiement</nz-form-label>
+            <nz-form-control nzErrorTip="Please select your mode !">
+              <nz-select
+                formControlName="pay"
+                id="pay"
+                nzPlaceHolder="Selectionner"
+              >
+                <nz-option nzLabel="carte" nzValue="Carte"></nz-option>
+                <nz-option nzLabel="espèce" nzValue="Espèce"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+
+        </div>
+        <div [nzSpan]="24" nz-col>
+          <nz-form-item>
+            <nz-form-label nzFor="PièceJointe" nzRequired>Pièce jointe</nz-form-label>
+            <nz-form-control>
+              <nz-upload
+                (nzChange)="handleChange($event)"
+                [nzMultiple]="true"
+                nzType="drag"
+              >
+                <p class="ant-upload-drag-icon">
+                  <span nz-icon nzType="inbox"></span>
+                </p>
+                <p class="ant-upload-text">Cliquez ou faites glisser le fichier dans cette zone pour le télécharger</p>
+                <p class="ant-upload-hint">
+                  Prise en charge d'un téléchargement unique ou en masse. Interdiction stricte de télécharger des
+                  données d'entreprise ou d'autres fichiers de bande.
+                </p>
+              </nz-upload>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div [nzSpan]="24" nz-col>
+          <nz-form-item>
+            <nz-form-label nzFor="description" nzRequired>Description</nz-form-label>
+            <nz-form-control nzErrorTip="La description est requise !">
+              <angular-editor
+                [config]="editorConfig"
+                formControlName="description"
+              ></angular-editor>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="p-4 border-t flex sm:flex-row flex-col sm:justify-between justify-center items-center">
+    <button (click)="onCancel()" class="mb-4 sm:mb-0 align-center-btn" nz-button nzDanger nzGhost>
+      <span nz-icon nzTheme="outline" nzType="arrow-left"></span>
+      Annuler
+    </button>
+    <button class="align-center-btn" nz-button nzType="primary">
+      <span nz-icon nzTheme="outline" nzType="save"></span>
+      Enregistrer la note
+    </button>
+  </div>
+</div>

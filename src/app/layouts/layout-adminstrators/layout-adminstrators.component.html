@@ -1,0 +1,82 @@
+<nz-layout class="app-layout">
+    <nz-sider [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null"
+              class="menu-sidebar"
+              nzBreakpoint="md"
+              nzCollapsible
+              nzTheme="light"
+              nzWidth="256px">
+        <div class="sidebar-logo">
+            <a (click)="goToHome()" class="" href="#" style="display: flex">
+                <img alt="logo" src="assets/logo.svg">
+            </a>
+        </div>
+        <ul [nzInlineCollapsed]="isCollapsed" nz-menu nzMode="inline" nzTheme="light">
+
+            <li nz-menu-item (click)="goToDashboard()">
+                <span nz-icon nzType="dashboard"></span>
+                <span>Tableau de bord</span>
+            </li>
+
+            <li nz-submenu nzIcon="file"  nzTitle="Notes de frais">
+                <ul>
+                    <li (click)="goToNote()" nz-menu-item nzMatchRouter>
+                        <a>Liste</a>
+                    </li>
+                    <li (click)="goToAddnote()" nz-menu-item nzMatchRouter>
+                        <a>Ajout</a>
+                    </li>
+                </ul>
+            </li>
+            <li nz-submenu nzIcon="usergroup-add"  nzTitle="Administrateurs">
+                <ul>
+                    <li (click)="goToListeUsers()" nz-menu-item nzMatchRouter>
+                        <a>Liste</a>
+                    </li>
+                    <li (click)="goToAddUser()" nz-menu-item nzMatchRouter>
+                        <a>Ajout</a>
+                    </li>
+                </ul>
+            </li>
+            <li nz-submenu nzIcon="bank"  nzTitle="Gestion des comptes">
+                <ul>
+                    <li (click)="goToListeEntre()" nz-menu-item nzMatchRouter>
+                        <a>Liste</a>
+                    </li>
+                    <li (click)="goToAddCompte()" nz-menu-item nzMatchRouter>
+                        <a>Ajout</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li nz-menu-item (click)="goToProfil()">
+                <span nz-icon nzType="number"></span>
+                <span>Profils</span>
+            </li>
+            <li nz-menu-item (click)="goToPermissions()">
+                <span nz-icon nzType="safety"></span>
+                <span>Permissions</span>
+            </li>
+
+
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header>
+            <div class="app-header">
+        <span (click)="isCollapsed = !isCollapsed" class="header-trigger">
+            <span [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+                  class="trigger"
+                  nz-icon
+            ></span>
+        </span>
+            </div>
+        </nz-header>
+        <nz-content>
+            <div class="inner-content">
+                <nz-breadcrumb class="uppercase margin-bottom-4" nzAutoGenerate nzSeparator="/"></nz-breadcrumb>
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+    </nz-layout>
+</nz-layout>

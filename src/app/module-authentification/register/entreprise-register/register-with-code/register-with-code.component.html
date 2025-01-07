@@ -1,0 +1,181 @@
+<div class="login_form">
+  <div class="h-100 container full-container">
+    <div class="container-left">
+      <app-left-container
+        [imgSrc]="'assets/verification/pref_family.svg'"
+        [title]="'Espace d\’inscription'"
+      ></app-left-container>
+    </div>
+    <div class="container-right">
+      <div class="bock-header">
+        <div
+          class="d-flex text-white items-center flex w-100 gap-3 go_back_container"
+          (click)="goBack()"
+        >
+          <span
+            nz-icon
+            nzType="arrow-left"
+            nzTheme="outline"
+            *ngIf="currentStep === 2 || currentStep === 3"
+          ></span>
+          <label for="" class="go_back">
+            <ng-container *ngIf="currentStep === 2"
+              >retour à la l’espace de mode d’inscription</ng-container
+            >
+            <ng-container *ngIf="currentStep === 3">retour</ng-container>
+          </label>
+        </div>
+
+        <h1 class="text-white">
+          <ng-container *ngIf="currentStep === 1"
+            >Mode d’inscription par code entreprise</ng-container
+          >
+          <ng-container *ngIf="currentStep === 2"
+            >Informations de votre organisation</ng-container
+          >
+
+          <ng-container *ngIf="currentStep === 3">Inscription</ng-container>
+        </h1>
+      </div>
+      <form [formGroup]="form" class="bloc-bottom">
+        <ng-container *ngIf="currentStep === 1">
+          <div [nzXs]="24" nz-col>
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="link" nzSize="default">
+                  <input
+                    nz-input
+                    nzSize="default"
+                    placeholder="Entrer le code de l'entreprise"
+                  />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="currentStep === 2">
+          <div [nzXs]="24" nz-col>
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="user" nzSize="default">
+                  <input nz-input nzSize="default" placeholder="Nom" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div [nzXs]="24" nz-col>
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="user" nzSize="default">
+                  <input
+                    nz-input
+                    nzSize="default"
+                    placeholder="Développements de logiciels"
+                  />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div [nzXs]="24" nz-col>
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="environment" nzSize="default">
+                  <input nz-input nzSize="default" placeholder="Adresse" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="currentStep === 3">
+          <div [nzXs]="24" nz-col>
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="user" nzSize="default">
+                  <input
+                    nz-input
+                    nzSize="default"
+                    placeholder="Nom"
+                    formControlName="name"
+                  />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div [nzXs]="24" nz-col>
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="user" nzSize="default">
+                  <input
+                    nz-input
+                    nzSize="default"
+                    placeholder="Prenom"
+                    formControlName="lastname"
+                  />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div [nzXs]="24" nz-col>
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="mail" nzSize="default">
+                  <input
+                    nz-input
+                    nzSize="default"
+                    placeholder="Email"
+                    formControlName="email"
+                  />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+
+          <div [nzXs]="24" nz-col>
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="key" nzSize="default">
+                  <input
+                    formControlName="password"
+                    nz-input
+                    nzSize="default"
+                    placeholder="Mot de passe"
+                    type="password"
+                  />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+
+          <div [nzXs]="24" nz-col>
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="key" nzSize="default">
+                  <input
+                    formControlName="confirmPassword"
+                    nz-input
+                    nzSize="default"
+                    placeholder="Confirmer le mot de passe"
+                    type="password"
+                  />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </ng-container>
+
+        <div [nzXs]="24" nz-col>
+          <button
+            class="button border-white w-100"
+            (click)="onSend()"
+            type="button"
+          >
+            <ng-container *ngIf="currentStep !== 3"> Suivant </ng-container>
+            <ng-container *ngIf="currentStep === 3"> Enregistrer </ng-container>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

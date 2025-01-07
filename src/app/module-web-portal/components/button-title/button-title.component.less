@@ -1,0 +1,59 @@
+
+.headSection  {
+  text-align: center;
+  font-size: 40px;
+  color: var(--primary-color);
+}
+
+// .headSection P {
+//   text-align: center;
+//   font-size: 18px;
+//   color: #717171;
+// }
+
+.container-title {
+  margin-top: 2rem;
+  margin-bottom: 1em;
+
+}
+
+.page_title_bordered_color {
+  padding: 10px 4rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 10px;
+  background-color: rgba(76, 16, 42, 0.69);
+
+}
+
+.ellipse {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 100px;
+  width: 100px;
+  z-index: -1;
+  &.top {
+    background-image: url("../../../../assets/webportal/vector/ellipse-right.svg");
+  }
+
+  &.bottom {
+    background-image: url("../../../../assets/webportal/vector/ellipse-left.svg");
+  }
+}
+
+
+@media (max-width: 768px) {
+  .ellipse {
+    height: 50px;
+    width: 50px;
+  }
+  .page_title_bordered_color{
+    padding: 10px 1rem;
+
+  }
+}

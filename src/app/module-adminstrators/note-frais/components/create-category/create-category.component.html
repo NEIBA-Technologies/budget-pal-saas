@@ -1,0 +1,88 @@
+<div class="form-container">
+  <div class="form-header">
+    Ajouter une catégorie de note
+  </div>
+
+  <div class="form-content">
+    <ng-container>
+      <form [formGroup]="form" nz-form>
+        <div nz-row>
+
+          <div nz-col nzSpan="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="5" [nzXs]="24" nzFor="libelle" nzRequired
+              >Libellé
+              </nz-form-label
+              >
+              <nz-form-control
+                [nzSm]="20"
+                [nzXs]="24"
+                nzErrorTip="Le nom est requis !"
+              >
+                <input formControlName="name" id="libelle" nz-input/>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+
+
+        <div nz-row>
+          <div nz-col nzSpan="24">
+            <nz-form-item>
+              <nz-form-label
+                [nzSm]="5"
+                [nzXs]="24"
+                nzFor="description"
+                nzRequired
+              >Description
+              </nz-form-label
+              >
+              <nz-form-control
+                [nzSm]="20"
+                [nzXs]="24"
+                nzErrorTip="La description est requise !"
+              >
+                <angular-editor
+                  [config]="editorConfig"
+                  formControlName="description"
+                ></angular-editor>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+        <div nz-col nzSpan="24">
+          <nz-form-item>
+            <nz-form-label [nzSm]="5" [nzXs]="24" nzFor="libelle" nzRequired
+            >Ajouter une icone
+            </nz-form-label
+            >
+            <nz-form-control [nzSm]="20" [nzXs]="24">
+              <nz-upload
+                (nzChange)="handleChange($event)"
+                [nzHeaders]="{ authorization: 'authorization-text' }"
+                nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              >
+                <button nz-button>
+                  <i nz-icon nzType="upload"></i>
+                  Clicker pour ajouter
+                </button>
+              </nz-upload>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+
+  <div class="form-footer">
+    <button (click)="onClose()" nz-button>Annuler</button>
+    <button
+      (click)="onSubmit()"
+      nz-button
+      nzType="primary"
+
+    >
+      Envoyer
+    </button>
+  </div>
+

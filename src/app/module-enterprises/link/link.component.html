@@ -1,0 +1,68 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">GESTION DES MEMBRES</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>LIEN</nz-breadcrumb-item>
+</nz-breadcrumb> <br>
+
+<div class="app-container">
+
+  <div class="table-header">
+    <h4>Générer un lien</h4>
+  </div>
+
+  <div class="table-content">
+    <form action="">
+
+      <div class="row">
+        <div class="label">
+          <label for="userName">Nom de l'entreprise</label>
+        </div>
+        <div class="input">
+          <input id="userName" name="userName" placeholder="Entrez le nom de l'entreprise.." type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="tel">Secteur d'activité</label>
+        </div>
+        <div class="input">
+          <input id="tel" name="tel" placeholder="Entrez le secteur d'activité..." type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="country">Pays</label>
+        </div>
+        <div class="input">
+          <input id="country" name="country" placeholder="Entrez le pays" type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="genere">Lien généré</label>
+        </div>
+        <div class="input">
+          <input id="genere" name="genere" placeholder="Ex: https://www.liengenereautomatiquement.com" type="text">
+        </div>
+      </div>
+
+
+      <br>
+      <div class="row boutons" style="display: flex;justify-content: space-between;margin-left: 800px;">
+        <div>
+          <input type="submit" value="Partager">
+        </div>
+
+        <div>
+          <input type="submit" value="Enregistrer">
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+

@@ -1,0 +1,78 @@
+<div class="conatainer_contact">
+
+    <div class="bloc_process mb-10 mt-5 headSection" id="fonctionnalitie">
+        <h1 class="text-center">Nous <span>contacter</span></h1>
+        <p>Une question ou une remarque ? Écrivez-nous un message</p>
+      </div>
+   <!-- <div class="mb-10 mt-5">
+    <app-button-title [title]="'Nous contacter'"></app-button-title>
+    <p class="headSection">Une question ou une remarque ? Écrivez-nous un message !</p>
+   </div> -->
+    <div class="groupContact">
+        <div class="info">
+            <h4 class="title"> Informations sur le contact</h4>
+            <div class="sitGeo">
+                <p><i nz-icon nzTheme="outline" nzType="phone"></i><span class="ml-5">+225 0701020304</span></p>
+                <p><i nz-icon nzTheme="outline" nzType="mail"></i><span class="ml-5">email@gmail.com</span></p>
+                <p><i nz-icon nzTheme="outline" nzType="environment"></i><span
+                        class="ml-5">Abidjan Cocody-Riviera Faya</span></p>
+            </div>
+            <div class="social">
+                <a class="icon twitter" href="#">
+                    <img alt="" class="h-full w-full fit-contain" src="/assets/webportal/vector/twitter.svg">
+                </a>
+
+                <a class="icon instagram" href="#">
+                    <img alt="" class="h-full w-full fit-contain" src="/assets/webportal/vector/instagram.svg">
+                </a>
+
+                <a class="icon discord" href="#">
+                    <img alt="" class="h-full w-full fit-contain" src="/assets/webportal/vector/discord.svg">
+                </a>
+            </div>
+        </div>
+        <div class="contact">
+            <form class="FormBLock">
+                <div class="forms">
+                    <div class="formGroup">
+                        <label for="name">Nom</label>
+                        <input id="name" maxlength="16" placeholder="Jhon" required type="text">
+                    </div>
+                    <div class="formGroup">
+                        <label for="lastname">Prénom(s)</label>
+                        <input id="lastname" maxlength="16" placeholder="Doe" required type="text">
+                    </div>
+                </div>
+                <div class="forms">
+                    <div class="formGroup">
+                        <label for="email">Email</label>
+                        <input id="utilisateur" placeholder="doe@gmail.com" required type="email">
+                    </div>
+                    <div class="formGroup">
+                        <label for="phone">Téléphone</label>
+                        <input id="phone" placeholder="+225 07 01 020 304" required type="number">
+                    </div>
+                </div>
+                <div class="formtextarea">
+                    <div class="formGroup ">
+                        <label for="message">Message</label>
+                        <input id="message" placeholder="Ecrire votre message" required type="text">
+                    </div>
+                </div>
+
+                <div class="btns">
+                    <app-button-simple
+                            [linkDestination]="'portal/contact'"
+                            [title]="'Envoyer le message'"
+                    ></app-button-simple>
+                </div>
+
+            </form>
+
+            <img alt="" src="/assets/webportal/fonctionnality/letter_send.svg">
+        </div>
+
+
+    </div>
+
+</div>

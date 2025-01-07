@@ -1,0 +1,107 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">GESTION DES NOTES</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>AJOUTER</nz-breadcrumb-item>
+</nz-breadcrumb> <br>
+
+<div class="app-container">
+
+  <div class="table-header">
+    <h4>Enregistrement</h4>
+  </div>
+
+  <div class="table-content">
+    <form action="">
+
+      <div class="row">
+        <div class="label">
+          <label for="noteTitle">Titre de la note</label>
+        </div>
+        <div class="input">
+          <input id="noteTitle" name="userName" placeholder="Entrez le titre de la note.." type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="date">Date</label>
+        </div>
+        <div class="input">
+          <input id="date" name="date" placeholder="JJ/MM/AAAA" type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="typeAccount">Catégorie</label>
+        </div>
+        <div class="input">
+          <select id="typeAccount" name="typeAccount">
+            <option value="admin">Sélectionnez</option>
+            <option value="membre">Carburant</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="description">Description</label>
+        </div>
+        <div class="input">
+          <textarea id="description" name="description" placeholder="Entrez une description.."
+                    style="height:100px"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="montant">Montant</label>
+        </div>
+        <div class="input">
+          <input id="montant" name="montant" placeholder="0" type="text">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">
+          <label for="buy">Payer par</label>
+        </div>
+        <div class="input">
+          <select id="buy" name="buy">
+            <option value="admin">Sélectionnez</option>
+            <option value="membre">OrangeMoney</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="label">
+        <label for="buy">Pièce jointe</label>
+      </div>
+      <div class="row img" style="margin-left: 380px; margin-bottom: 15px;">
+
+        <nz-upload
+          (nzChange)="handleChange($event)"
+          [nzMultiple]="true"
+          nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          nzType="drag"
+        >
+          <p class="ant-upload-drag-icon">
+            <span nz-icon nzType="inbox"></span>
+          </p>
+          <p class="ant-upload-text">Cliquez ou faites glisser le fichier dans cette zone pour le télécharger</p>
+          <p class="ant-upload-hint">
+            Prise en charge d'un téléchargement unique ou en masse. Interdiction stricte de télécharger des données
+            d'entreprise ou d'autres fichiers de bande.
+          </p>
+        </nz-upload>
+      </div>
+
+
+      <div class="row" style="display: flex;justify-content: center; margin-left: 400px;">
+        <input type="submit" value="Enregistrer">
+      </div>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,46 @@
+<div class="login_form">
+  <div class="h-100 container full-container">
+    <div class="container-left">
+      <app-left-container
+        [imgSrc]="'assets/verification/verification_box.svg'"
+        [title]="'Vérification'"
+      ></app-left-container>
+    </div>
+    <div class="container-right">
+      <div [nzGutter]="24" nz-row nzAlign="middle" nzJustify="center">
+        <div [nzXs]="24" nz-col class="block-header">
+          <h1 class="text-white">Mot de passe oublié ?</h1>
+          <p>
+            Nous avons envoyé un e-mail à votre compte de messagerie avec un
+            code de vérification !
+          </p>
+        </div>
+
+        <div [nzXs]="24" nz-col>
+          <form nz-form nzLayout="vertical">
+            <nz-form-item>
+              <nz-form-control nzSpan="24">
+                <nz-input-group nzPrefixIcon="key" nzSize="default">
+                  <input
+                    nz-input
+                    nzSize="default"
+                    placeholder="Entrez le code de vérification"
+                  />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+        </div>
+
+        <div [nzXs]="24" nz-col>
+          <button
+            class="button border-white w-100"
+            (click)="goDefineNewPassword()"
+          >
+            Valider
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

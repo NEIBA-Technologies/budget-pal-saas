@@ -1,0 +1,5 @@
+Profil Entreprise ( Administrateur entreprise )
+- Génère lien d'inscription
+- Gère les membre de son entreprise
+- Voit les note de frais
+- Gère les remboursement

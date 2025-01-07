@@ -1,0 +1,119 @@
+.section_with_padding {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bloc_process {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 1rem;
+
+    p{
+      font-size: 20px;
+    }
+
+    span {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.headSection p {
+  text-align: center;
+  font-size: 18px;
+  color: #717171;
+}
+
+.app-container{
+  //margin: 0em 6em;
+}
+
+.section_our_price {
+  .price_cards_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 0 !important;
+
+    .price_card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .name {
+        font-weight: bold;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #f2f2f2;
+      }
+
+      .check_content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .check_item {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+.card_rounded_circle {
+  background-color: var(--primary-color);
+}
+
+.main_border_color {
+  border-color: var(--primary-color);
+}
+
+.border-1 {
+  border: 1px solid;
+}
+
+.buy_btn {
+  color: var(--primary-color);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  &.active {
+    background-color: var(--primary-color);
+    color: white !important;
+  }
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: white !important;
+
+  }
+}
+
+
+@media (max-width: 768px) {
+  .section_with_padding {
+    padding: 1rem !important;
+  }
+}

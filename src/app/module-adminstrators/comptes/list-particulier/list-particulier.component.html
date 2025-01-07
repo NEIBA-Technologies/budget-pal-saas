@@ -1,0 +1,90 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['../../']">TABLEAU DE BORD</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item> Liste des comptes entreprises</nz-breadcrumb-item>
+</nz-breadcrumb> <br>
+
+<div class="app-container">
+  <div class="table-header">
+    <div class="search-bar-container">
+      <input nz-input placeholder="Rechercher une opération" type="text"/>
+    </div>
+
+    <div class="button-container">
+
+      <button (click)="goToAdd()" nz-button nzType="primary">
+        <span nz-icon nzTheme="outline" nzType="plus"></span>
+        Nouveau compte
+      </button>
+      <!-- <button
+        nz-button
+        nzType="primary"
+        [disabled]="setOfCheckedId.size === 0"
+        [nzLoading]="loading"
+        (click)="sendRequest()"
+        [ngClass]="setOfCheckedId.size === 0 ? 'hide_btn' : ''"
+      >
+        Action sur selection
+      </button> -->
+    </div>
+  </div>
+  <div class="table-content">
+    <nz-table
+      #rowSelectionTable
+      (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+      [nzData]="noteFraisListing"
+      nzShowPagination
+      nzShowSizeChanger
+    >
+      <thead>
+      <tr>
+        <th
+          (nzCheckedChange)="onAllChecked($event)"
+          [nzChecked]="checked"
+          [nzIndeterminate]="indeterminate"
+        ></th>
+        <th>Admin</th>
+        <th>Nom employé</th>
+        <th>Téléphone</th>
+        <th>Email</th>
+        <th>Accès</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of noteFraisListing">
+        <td>{{data.id}}</td>
+        <td>{{data.admin}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.phone}}</td>
+        <td>{{data.email}}</td>
+        <td>
+          <button class="btn-auth" nz-button nzType="default">Autorisation<i nz-icon nzType="caret-down"></i></button>
+        </td>
+        <td class="boutons">
+          <div>
+            <button class="colorDetail" nz-button nzType="default">
+              <i nz-icon nzType="eye"></i>
+              <span>Details</span>
+            </button>
+          </div>
+
+          <div class="export">
+            <button nz-button nzType="primary">
+              <i nz-icon nzType="edit"></i>
+              <span>Editer</span>
+            </button>
+          </div>
+
+          <div class="supp">
+            <button class="colorSupp" nz-button nzShape="circle" nzType="primary"><i nz-icon nzType="delete"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
+

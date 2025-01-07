@@ -1,0 +1,40 @@
+<div class="app-container">
+    <div class="form-content">
+        <form (ngSubmit)="submitForm()" [formGroup]="form" nz-form nzLayout="vertical">
+            <div [nzGutter]="22" nz-row>
+                <div [nzSm]="24" [nzXs]="24" nz-col>
+                    <nz-form-item>
+                        <nz-form-label nzFor="user" nzRequired>Nom profil</nz-form-label>
+                        <nz-form-control nzErrorTip="Le nom est requis !">
+                            <nz-input-group nzPrefixIcon="user">
+                                <input formControlName="profile" id="user" nz-input placeholder="profil 1"/>
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+            
+            <div [nzSm]="24" [nzXs]="24" nz-col>
+                <nz-form-item>
+                    <nz-form-label nzFor="profile" nzRequired>Permissions</nz-form-label>
+                    <nz-form-control nzErrorTip="">
+                        <nz-select nzMode="multiple" nzPlaceHolder="Entrer les permissions">
+                            <nz-option *ngFor="let option of listOfOption" [nzLabel]="option" [nzValue]="option"></nz-option>
+                            <nz-option *ngFor="let option of defaultOption" [nzLabel]="option" [nzValue]="option" nzHide></nz-option>
+                          </nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="form-footer">
+        <button (click)="onCancel()" nz-button>Annuler</button>
+        <button nz-button nzType="primary">
+            Valider
+        </button>
+    </div>
+</div>
+
+

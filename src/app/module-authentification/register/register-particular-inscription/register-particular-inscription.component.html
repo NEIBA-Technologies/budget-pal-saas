@@ -1,0 +1,150 @@
+<div class="login_form">
+  <div class="h-100 container full-container">
+    <div class="container-left">
+      <app-left-container
+        [imgSrc]="'assets/connexion/secure-document.png'"
+        [title]="'Espace d\'inscription'"
+      ></app-left-container>
+    </div>
+    <div class="container-right">
+      <div class="bock-header">
+        <div
+          class="d-flex text-white items-center flex w-100 gap-3 go_back_container"
+          (click)="goBack()"
+        >
+          <span nz-icon nzType="arrow-left" nzTheme="outline"></span>
+          <label for="" class="go_back">
+            <ng-container *ngIf="currentStep === 1"
+              >retour à l’espace d’authentification</ng-container
+            >
+            <ng-container *ngIf="currentStep === 2">retour</ng-container>
+          </label>
+        </div>
+      </div>
+      <div class="bloc-bottom">
+        <h1 class="text-white form-header-section">
+          <ng-container *ngIf="currentStep === 1"
+            >Informations de votre organisation</ng-container
+          >
+          <ng-container *ngIf="currentStep === 2">Inscription</ng-container>
+        </h1>
+        <div class="form-content">
+          <form [formGroup]="form">
+            <ng-container *ngIf="currentStep === 1">
+              <nz-form-item>
+                <nz-form-control nzSpan="24">
+                  <nz-input-group nzPrefixIcon="user" nzSize="default">
+                    <input nz-input nzSize="default" placeholder="Nom" />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control nzSpan="24">
+                  <nz-select nzPlaceHolder="Secteur d'activité">
+                    <nz-option
+                      nzValue="Sect1"
+                      nzLabel="Secteur d'activité exemple"
+                    ></nz-option>
+                  </nz-select>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control nzSpan="24">
+                  <nz-select
+                    aria-placeholder="Pays"
+                    nzPlaceHolder="Choisir le pays"
+                  >
+                    <nz-option
+                      nzValue="pays1"
+                      nzLabel="Cote d'ivoire"
+                    ></nz-option>
+                  </nz-select>
+                </nz-form-control>
+              </nz-form-item>
+            </ng-container>
+
+            <ng-container *ngIf="currentStep === 2">
+              <nz-form-item>
+                <nz-form-control nzSpan="24">
+                  <nz-input-group nzPrefixIcon="user" nzSize="default">
+                    <input
+                      nz-input
+                      nzSize="default"
+                      placeholder="Nom"
+                      formControlName="name"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control nzSpan="24">
+                  <nz-input-group nzPrefixIcon="user" nzSize="default">
+                    <input
+                      nz-input
+                      nzSize="default"
+                      placeholder="Prenom"
+                      formControlName="lastname"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control nzSpan="24">
+                  <nz-input-group nzPrefixIcon="mail" nzSize="default">
+                    <input
+                      nz-input
+                      nzSize="default"
+                      placeholder="Email"
+                      formControlName="email"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-control nzSpan="24">
+                  <nz-input-group nzPrefixIcon="key" nzSize="default">
+                    <input
+                      formControlName="password"
+                      nz-input
+                      nzSize="default"
+                      placeholder="Mot de passe"
+                      type="password"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-control nzSpan="24">
+                  <nz-input-group nzPrefixIcon="key" nzSize="default">
+                    <input
+                      formControlName="confirmPassword"
+                      nz-input
+                      nzSize="default"
+                      placeholder="Confirmer le mot de passe"
+                      type="password"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+            </ng-container>
+
+            <div [nzXs]="24" nz-col>
+              <button
+                class="button border-white w-100"
+                (click)="onSend()"
+                type="button"
+              >
+                <ng-container *ngIf="currentStep === 1"> Suivant </ng-container>
+                <ng-container *ngIf="currentStep === 2">
+                  Enregistrer
+                </ng-container>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

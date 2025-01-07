@@ -1,0 +1,26 @@
+<div class="modal">
+  <div class="modal_header">
+    <div class="icon-container">
+      <span nz-icon nzType="close" nzTheme="outline" (click)="onClose()"></span>
+    </div>
+  </div>
+
+  <div class="modal_content">
+    <div class="check_icon_container">
+      <span nz-icon nzType="check" nzTheme="outline"></span>
+    </div>
+
+    <div class="title">{{ title }}</div>
+    <p>{{ description }}</p>
+
+    <button
+      (click)="onClose()"
+      nz-button
+      nzSize="default"
+      nzType="primary"
+      nzShape="round"
+    >
+      Quitter
+    </button>
+  </div>
+</div>

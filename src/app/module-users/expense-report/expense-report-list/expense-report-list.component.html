@@ -1,0 +1,62 @@
+<div class="app-container">
+  <div class="table-header">
+    <div class="search-bar-container">
+      <input nz-input placeholder="Rechercher une opération" type="text"/>
+    </div>
+
+    <div class="button-container">
+      <button (click)="goCreate()" nz-button nzType="primary">
+        <span nz-icon nzTheme="outline" nzType="plus"></span>
+        Ajouter
+      </button>
+      <button
+        (click)="sendRequest()"
+        [disabled]="setOfCheckedId.size === 0"
+        [ngClass]="setOfCheckedId.size === 0 ? 'hide_btn' : ''"
+        [nzLoading]="loading"
+        nz-button
+        nzType="primary"
+      >
+        Action sur selection
+      </button>
+    </div>
+  </div>
+  <div class="table-content">
+    <nz-table
+      #rowSelectionTable
+      (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+      [nzData]="listOfData"
+      nzShowPagination
+      nzShowSizeChanger
+    >
+      <thead>
+      <tr>
+        <th
+          (nzCheckedChange)="onAllChecked($event)"
+          [nzChecked]="checked"
+          [nzIndeterminate]="indeterminate"
+        ></th>
+        <th>Note</th>
+        <th>Total dépenses</th>
+        <th>Montant</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of rowSelectionTable.data">
+        <td
+          (nzCheckedChange)="onItemChecked(data.id, $event)"
+          [nzChecked]="setOfCheckedId.has(data.id)"
+          [nzDisabled]="data.disabled"
+        ></td>
+        <td>{{ data.name }}</td>
+        <td>{{ data.age }}</td>
+        <td>{{ data.address }}</td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
